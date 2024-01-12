@@ -1,0 +1,50 @@
+<%= form_for @article do |form| %>
+    <% if @article.errors.any? %>
+        <div id="error_explanation">
+        <h2>
+            <%= pluralize(@article.errors.count, "error") %> prohibited
+            this article from being saved:
+        </h2>
+        <ul>
+            <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+    
+    <form class="mb-6">
+        <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
+            <%= form.text_field :title,
+                id: "title",
+                placeholder: "Title...",
+                class: "px-0 w-full text-sm text-gray-900 border-0 focus:ring-0"
+            %>
+        </div>
+        <div class="inline-flex">
+            <label class="py-2 mr-4 text-center"><%= form.label "Author" %></label>
+            <div class="py-2 mr-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
+                <%= form.text_field :author,
+                    id: "author",
+                    placeholder: "Enter your name",
+                    class: "px-0 w-full text-sm text-gray-900 border-0 focus:ring-0"
+                %>
+            </div>
+            <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
+                <%= form.text_field :author_email,
+                    id: "author_email",
+                    placeholder: "Enter your email address",
+                    class: "mx-3 px-0 w-full text-sm text-gray-900 border-0 focus:ring-0"
+                %>
+            </div>
+        </div>
+        <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
+            <%= form.label "Content" %><br>
+            <%= form.rich_text_area :text %>
+        </div>
+        <button type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+            <%= form.submit "Publish" %>
+        </button>
+    </form>
+ 
+<% end %>

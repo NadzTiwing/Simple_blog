@@ -1,0 +1,21 @@
+<% if comment.commenter.present? %>
+    <article class="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900">
+        <footer class="flex justify-between items-center mb-2">
+            <div class="flex items-center">
+                <p class="inline-flex items-center mr-3 font-semibold text-sm text-gray-900 dark:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+                <span><%= comment.commenter %></span></p>
+                <%# <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
+                        title="February 8th, 2022">Feb. 8, 2022</time></p> %>
+            </div>
+        </footer>
+        <p><%= comment.body %></p>
+        <%#= button_to 'Destroy Comment', [comment.article, comment],
+            method: :delete,
+            data: { confirm: 'Are you sure?' },
+            class: "text-red-500 hover:text-red-700 font-bold pb-2"
+            %>
+    </article>
+<% end %>
